@@ -8,12 +8,21 @@
     <h1>User List</h1>
     <ul>
       <%
-        var list = '';
+        var list = [];
+        var email = [];
         for (i = 0; i < userlist.length; i++) {
-          list += '<li><a href="mailto:' + userlist[i].email + '">' + userlist[i].username + '</a></li>';
+          list.push(userlist[i].username);
+          email.push(userlist[i].email);
         }
       %>
-      <%= list %>
+
+        <%for (i = 0; i < userlist.length; i++) {%>
+          <li>
+            <a href= 'mailto:<%= email[i] %>'> 
+              <%= list[i]%>
+            </a>
+          </li>
+        <%}%>
     </ul>
   </body>
 </html>
